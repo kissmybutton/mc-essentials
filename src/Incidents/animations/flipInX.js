@@ -1,7 +1,7 @@
 export const flipInX = {
   0: {
     transform: {
-      perspective: "400px",
+      // perspective: "400px",
       rotateX: "90deg",
     },
     easing: "easeInQuad",
@@ -9,14 +9,14 @@ export const flipInX = {
   },
   40: {
     transform: {
-      perspective: "400px",
+      // perspective: "400px",
       rotateX: "-20deg",
     },
     easing: "easeInQuad",
   },
   60: {
     transform: {
-      perspective: "400px",
+      // perspective: "400px",
       rotateX: "10deg",
     },
     opacity: 1,

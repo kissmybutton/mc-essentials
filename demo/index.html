@@ -4,27 +4,94 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>DonkeyClip | MotorCortex Plugin Starter Demo</title>
+    <title>DonkeyClip | MotorCortex Essentials</title>
     <link rel="stylesheet" href="style.css">
+  <script>
+    function redirectToAnimation(animation) {
+      document.getElementById('clip').style.opacity = 0;
+      setTimeout(()=>{window.location.href = window.location.pathname + '?animation=' + animation;}, 100);
+    }
+
+    function setSelectedAnimation() {
+      var urlParams = new URL(window.location.href);
+      console.log(urlParams);
+      var animation = urlParams.search.split('=')[1];
+      console.log(animation);
+      document.getElementById('selected-anime-title').innerText = animation;
+      if (animation) {
+        var selectedElement = document.getElementById(animation);
+        if (selectedElement) {
+          selectedElement.classList.add('selected');
+        }
+      }
+    }
+
+    window.onload = setSelectedAnimation;
+  </script>
   </head>
 
   <body>
-    <section><div id="clip"></div></section>
+      <div class="container">
+          <div class="left-column">
+              <h1 id="selected-anime-title"></h1>
+              <ul>
+                  <li id="pulse" onclick="redirectToAnimation('pulse')">pulse</li>
+                  <li id="bounce" onclick="redirectToAnimation('bounce')">bounce</li>
+                  <li id="flash" onclick="redirectToAnimation('flash')">flash</li>
+                  <li id="heartBeat" onclick="redirectToAnimation('heartBeat')">heartBeat</li>
+                  <li id="jello" onclick="redirectToAnimation('jello')">jello</li>
+                  <li id="backInDown" onclick="redirectToAnimation('backInDown')">backInDown</li>
+                  <li id="backInLeft" onclick="redirectToAnimation('backInLeft')">backInLeft</li>
+                  <li id="backInRight" onclick="redirectToAnimation('backInRight')">backInRight</li>
+                  <li id="backInUp" onclick="redirectToAnimation('backInUp')">backInUp</li>
+                  <li id="backOutDown" onclick="redirectToAnimation('backOutDown')">backOutDown</li>
+                  <li id="backOutLeft" onclick="redirectToAnimation('backOutLeft')">backOutLeft</li>
+                  <li id="backOutRight" onclick="redirectToAnimation('backOutRight')">backOutRight</li>
+                  <li id="backOutUp" onclick="redirectToAnimation('backOutUp')">backOutUp</li>
+                  <li id="bounceIn" onclick="redirectToAnimation('bounceIn')">bounceIn</li>
+                  <li id="bounceInDown" onclick="redirectToAnimation('bounceInDown')">bounceInDown</li>
+                  <li id="bounceInLeft" onclick="redirectToAnimation('bounceInLeft')">bounceInLeft</li>
+                  <li id="bounceInRight" onclick="redirectToAnimation('bounceInRight')">bounceInRight</li>
+                  <li id="bounceOut" onclick="redirectToAnimation('bounceOut')">bounceOut</li>
+                  <li id="bounceOutDown" onclick="redirectToAnimation('bounceOutDown')">bounceOutDown</li>
+                  <li id="bounceOutLeft" onclick="redirectToAnimation('bounceOutLeft')">bounceOutLeft</li>
+                  <li id="bounceOutRight" onclick="redirectToAnimation('bounceOutRight')">bounceOutRight</li>
+                  <li id="bounceOutUp" onclick="redirectToAnimation('bounceOutUp')">bounceOutUp</li>
+                  <li id="fadeInDown" onclick="redirectToAnimation('fadeInDown')">fadeInDown</li>
+                  <li id="fadeInLeft" onclick="redirectToAnimation('fadeInLeft')">fadeInLeft</li>
+                  <li id="fadeInRight" onclick="redirectToAnimation('fadeInRight')">fadeInRight</li>
+                  <li id="fadeInUp" onclick="redirectToAnimation('fadeInUp')">fadeInUp</li>
+                  <li id="fadeOutDown" onclick="redirectToAnimation('fadeOutDown')">fadeOutDown</li>
+                  <li id="fadeOutLeft" onclick="redirectToAnimation('fadeOutLeft')">fadeOutLeft</li>
+                  <li id="fadeOutRight" onclick="redirectToAnimation('fadeOutRight')">fadeOutRight</li>
+                  <li id="fadeOutUp" onclick="redirectToAnimation('fadeOutUp')">fadeOutUp</li>
+                  <li id="flipInX" onclick="redirectToAnimation('flipInX')">flipInX</li>
+                  <li id="headShake" onclick="redirectToAnimation('headShake')">headShake</li>
+                  <li id="rubberBand" onclick="redirectToAnimation('rubberBand')">rubberBand</li>
+                  <li id="shakeX" onclick="redirectToAnimation('shakeX')">shakeX</li>
+                  <li id="shakeY" onclick="redirectToAnimation('shakeY')">shakeY</li>
+                  <li id="tada" onclick="redirectToAnimation('tada')">tada</li>
+              </ul>
 
-    <div id="motorcortex-tools">
-        <div id="motorcortex-logo">
-            <img src="./motorcortex.png" width="20px" height="20px" />
-        </div>
-        <div id="menu">
-            <div class="item">
-                <a href="https://donkeyclip.com/explore/plugins" target="_blank">Plugins</a>
-            </div>
-            <div class="item">
-                <a href="https://motorcortexjs.com" target="_blank">Docs</a>
-            </div>
-        </div>
-    </div> 
+          </div>
+          <div class="right-column">
+              <section><div id="clip"></div></section>
 
+              <div id="motorcortex-tools">
+                  <div id="motorcortex-logo">
+                      <img src="./motorcortex.png" width="20px" height="20px" />
+                  </div>
+                  <div id="menu">
+                      <div class="item">
+                          <a href="https://donkeyclip.com/explore/plugins" target="_blank">Plugins</a>
+                      </div>
+                      <div class="item">
+                          <a href="https://motorcortexjs.com" target="_blank">Docs</a>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
     <script src="./motorcortex-tools.js"></script>
     <script src="./bundle.js"></script>
   </body>
