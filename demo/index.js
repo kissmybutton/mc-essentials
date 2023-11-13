@@ -7,17 +7,27 @@ const clip = new HTMLClip({
   html: `<div class="container">
         <div id="effect"></div>
         <div id="htmlclip"></div>
-        <div id="combo"></div>
+        <div class="combo" id="combo"></div>
+        <div class="combo two"></div>
         <div id="myclip"></div>
     </div>`,
   css: `
         .container{
-            width: 600px,
-            height: 400px
+            background: #111;
+            width: 600px;
+            height: 400px;
         }
-        .container>div{
-            width: 50%;
-            height: 50%;
+        .combo {
+          position: absolute;
+          background: #4672fe;
+          width: 120px;
+          height: 40px;
+          top: 100px;
+          left: 220px;
+        }
+        .combo.two{
+          top: 250px;
+          left: 220px;
         }
     `,
   host: document.getElementById("clip"),
@@ -27,43 +37,37 @@ const clip = new HTMLClip({
   },
 });
 
-const newEffect = new MyPlugin.MyEffect(
+const newCombo = new MyPlugin.Keyframes(
   {
-    animatedAttrs: {
-      attr: "finalvalue",
+    keyframes: {
+      0: {
+        top: "20px",
+        width: "400px",
+        easing: "easeInOutQuad",
+      },
+      50: {
+        easing: "easeInOutQuad",
+        top: "200px",
+        width: "200px",
+        background: "pink",
+      },
+      100: {
+        width: "10px",
+        background: "red",
+        easing: "easeInOutQuad",
+      },
     },
-  },
-  {
-    selector: "#effect",
-    duration: 1000,
-  }
-);
-
-const newCombo = new MyPlugin.MyCombo(
-  {
-    // here goes your attrs
+    animation: "tada",
   },
   {
     selector: "#combo",
+    duration: 1000,
+    // easing: "easeInQuad",
+    // delay: "@stagger(0, 400)",
   }
 );
 
-const newHTMLClip = new MyPlugin.MyHTMLClip(
-  {
-    // here goes your attrs
-  },
-  {
-    selector: "#htmlclip",
-  }
-);
-
-const newCustomClip = new MyPlugin.Clip({
-  selector: "#myclip",
-});
-
-clip.addIncident(newEffect, 0);
 clip.addIncident(newCombo, 0);
-clip.addIncident(newHTMLClip, 0);
-clip.addIncident(newCustomClip, 0);
 
+// eslint-disable-next-line no-unused-vars
 const player = new Player({ clip });

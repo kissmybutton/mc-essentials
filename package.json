@@ -1,5 +1,5 @@
 {
-  "name": "my-plugin-name",
+  "name": "mc-essentials",
   "version": "0.0.1",
   "description": "Your plugin description here",
   "main": "dist/bundle.cjs.js",
@@ -71,5 +71,7 @@
     "webpack-cli": "4.10.0",
     "webpack-dev-server": "4.15.1"
   },
-  "dependencies": {}
+  "dependencies": {
+    "concurrently": "^8.2.2"
+  }
 }
