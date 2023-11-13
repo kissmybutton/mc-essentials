@@ -1,44 +1,158 @@
-# motorcortex-plugin-starter
+# MotorCortex-mc-essentials
 
-## Purpose
+**Table of Contents**
 
-A starter plugin for creating MotorCortex plugins.
+- [MotorCortex-mc-essentials](#motorcortex-mc-essentials)
+  - [Description](#description)
+  - [Demo](#demo)
+- [Incidents](#incidents)
+  - [Animation](#animation)
+- [Getting Started](#getting-started)
+  - [Installation](#installation)
+  - [Importing and Using the Plugin](#importing-and-using-the-plugin)
+- [Using the Animation Incident](#using-the-animation-incident)
+  - [Ready-to-Use Animations](#ready-to-use-animations)
+  - [Custom Keyframes](#custom-keyframes)
+- [Contributing](#contributing)
+- [License](#license)
+- [Sponsored by](#sponsored-by)
 
-## Structure and Contents
+## Description
 
-It includes:
+`mc-essentials` provides developers with a range of convenient CSS animations such as flash, bounce, etc., while also accepting custom keyframes for creating unique animation combinations.
 
-- rollup configuration & ready to use build tools
-- a pre-configured webpack for the needs of the demo
-- pre-configured eslint and babel
-- and a set of ready to work on, Incidents:
-  - **Effect**, for developing a custom Effect
-  - **HTMLClip**, for developing a pre-configured HTML Clip with HTML, CSS and Incidents
-  - **Combo**, for developing custom, pre-configured Combos
-  - **Clip**, for developing custom browser Clips, such as canvas
+## Demo
 
-These Incidents are the starting point for developing a plugin. They extend the right
-Classes from MotorCortex SDK and they have blank implementations of all the methods that
-should or can be overwritten, with comments.
+[Check out the demo here](https://kissmybutton.github.io/mc-essentials/demo/)
 
-Along with the comments you can always refer to <a href="https://docs.motorcortexjs.com/" target="_blank">MotorCortex documentation</a>
-for detailed information on how to implement a plugin.
+# Incidents
 
-## How to use
+## Animation
 
-Once you've decided what exactly your pluign is going to do and once we've decided on the type of Incident(s)
-you need to implement, you can start directly from the basic/blank implementations and either work on them directly
-or just copy them.
-Change the names of the files, name your Classes however you want but always make sure you import and
-expose everything properly on your index.js file.
+The `Animation` incident can take an object in its attributes, which may have either the `keyframes` key for defining custom keyframes or the `animation` key to use one of the plugin's ready-made animations.
 
-Also, it's imortant to change your package.json file so you can name your pluign, provide details and more.
+# Getting Started
 
-## Commands
+## Installation
 
-- `npm run build`: builds the dist of your pluign along with the demo
-- `npm run build:demo`: builds just the demo
-- `npm start`: builds everything and starts the demo
-- `npm start:demo`: just starts the demo
+```bash
+$ npm install --save @kissmybutton/motorcortex-mc-essentials
+# OR
+$ yarn add @kissmybutton/motorcortex-mc-essentials
+```
 
-## Have fun!!!
+## Importing and using the plugin
+
+```javascript
+import { loadPlugin } from "@kissmybutton/motorcortex";
+import MCEssentials from "@kissmybutton/motorcortex-mc-essentials";
+const EssentialsPlugin = loadPlugin(MCEssentials);
+```
+
+# Using the Animation Incident
+
+## Ready-to-Use Animations
+
+The list of available animations includes:
+
+- pulse
+- bounce
+- flash
+- heartBeat
+- jello
+- backInDown
+- backInLeft
+- backInRight
+- backInUp
+- backOutDown
+- backOutLeft
+- backOutRight
+- backOutUp
+- bounceIn
+- bounceInDown
+- bounceInLeft
+- bounceInRight
+- bounceOut
+- bounceOutDown
+- bounceOutLeft
+- bounceOutRight
+- bounceOutUp
+- fadeInDown
+- fadeInLeft
+- fadeInRight
+- fadeInUp
+- fadeOutDown
+- fadeOutLeft
+- fadeOutRight
+- fadeOutUp
+- flipInX
+- headShake
+- rubberBand
+- shakeX
+- shakeY
+- tada
+
+```javascript
+import { loadPlugin } from "@kissmybutton/motorcortex";
+import MCEssentials from "@kissmybutton/motorcortex-mc-essentials";
+const EssentialsPlugin = loadPlugin(MCEssentials);
+
+const bounceAnimation = new EssentialsPlugin.Animation(
+  {
+    animation: "bounce",
+  },
+  {
+    selector: ".classA",
+    duration: 1000,
+    easing: "linear",
+  }
+);
+```
+
+## Custom Keyframes
+
+For custom keyframes, users can define the CSS attributes' values animations by specifying their values at various percentages of the animation. The `easing` key is supported and defines the easing of the animation from the previous step to the current one.
+
+Example:
+
+```javascript
+const animation = new EssentialsPlugin.Animation(
+  {
+    keyframes: {
+      0: {
+        top: "20px",
+        width: "400px",
+        easing: "easeInOutQuad",
+      },
+      50: {
+        easing: "easeInOutQuad",
+        top: "200px",
+        width: "200px",
+        background: "pink",
+      },
+      100: {
+        width: "10px",
+        background: "red",
+        easing: "easeInOutQuad",
+      },
+    },
+  },
+  {
+    selector: ".classA",
+    duration: 1000,
+    easing: "linear",
+  }
+);
+```
+
+# Contributing
+
+Please refer to the general guidelines for contributing to MotorCortex plugins.
+
+# License
+
+[MIT License](https://opensource.org/licenses/MIT)
+
+# Sponsored by
+
+[![Kiss My Button](https://presskit.kissmybutton.gr/logos/kissmybutton-logo-small.png)](https://kissmybutton.gr)

@@ -7,7 +7,7 @@ export default {
   incidents: [
     {
       exportable: Keyframes,
-      name: "Keyframes",
+      name: "Animation",
       // attributesValidationRules: attrRules,
     },
   ],

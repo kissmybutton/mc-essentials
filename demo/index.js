@@ -1,7 +1,7 @@
 import { loadPlugin, HTMLClip } from "@donkeyclip/motorcortex";
 import Player from "@donkeyclip/motorcortex-player";
 import MyPluginDefinition from "../dist/bundle.esm";
-const MyPlugin = loadPlugin(MyPluginDefinition);
+const Essentials = loadPlugin(MyPluginDefinition);
 
 const urlParams = new URL(window.location.href).searchParams;
 const animation = urlParams.get("animation");
@@ -36,7 +36,7 @@ const clip = new HTMLClip({
   },
 });
 
-const newCombo = new MyPlugin.Keyframes(
+const newCombo = new Essentials.Animation(
   {
     // keyframes: {
     //   0: {
