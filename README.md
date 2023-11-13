@@ -23,7 +23,7 @@
 
 ## Demo
 
-[Check out the demo here](https://kissmybutton.github.io/mc-essentials/demo/)
+[Check out the demo here](https://kissmybutton.github.io/mc-essentials/demo/?animation=pulse)
 
 # Incidents
 
